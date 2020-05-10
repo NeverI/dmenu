@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-selected_file=$(ls -tp $1 | grep -v / | dmenu -i)
+selected_file=$(ls -tp $1 | grep -v / | dmenu -i -n)
 
 [[ -n $selected_file ]] || exit
 
