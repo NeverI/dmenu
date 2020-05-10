@@ -60,6 +60,7 @@ install: all
 		scripts/uttmenu\
 		scripts/xdgopenmenu\
 		$(DESTDIR)$(PREFIX)/bin
+	chmod 755 $(DESTDIR)$(PREFIX)/bin/stest
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/dmenu
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/dmenu_path
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/dmenu_run_i
@@ -70,7 +71,6 @@ install: all
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/quickrunmenu
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/uttmenu
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/xdgopenmenu
-	chmod 755 $(DESTDIR)$(PREFIX)/bin/stest
 	mkdir -p $(DESTDIR)$(MANPREFIX)/man1
 	sed "s/VERSION/$(VERSION)/g" < dmenu.1 > $(DESTDIR)$(MANPREFIX)/man1/dmenu.1
 	sed "s/VERSION/$(VERSION)/g" < stest.1 > $(DESTDIR)$(MANPREFIX)/man1/stest.1
@@ -81,8 +81,14 @@ uninstall:
 	rm -f $(DESTDIR)$(PREFIX)/bin/dmenu\
 		$(DESTDIR)$(PREFIX)/bin/dmenu_path\
 		$(DESTDIR)$(PREFIX)/bin/dmenu_run_i\
-		$(DESTDIR)$(PREFIX)/bin/passmenu\
 		$(DESTDIR)$(PREFIX)/bin/stest\
+		$(DESTDIR)$(PREFIX)/bin/passmenu\
+		$(DESTDIR)$(PREFIX)/bin/projectmenu\
+		$(DESTDIR)$(PREFIX)/bin/recent_list_cache\
+		$(DESTDIR)$(PREFIX)/bin/quickeditmenu\
+		$(DESTDIR)$(PREFIX)/bin/quickrunmenu\
+		$(DESTDIR)$(PREFIX)/bin/uttmenu\
+		$(DESTDIR)$(PREFIX)/bin/xdgopenmenu\
 		$(DESTDIR)$(MANPREFIX)/man1/dmenu.1\
 		$(DESTDIR)$(MANPREFIX)/man1/stest.1
 
