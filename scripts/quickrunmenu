@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+cmd=$(cat "$1"  | dmenu -i)
+
+[[ -n $cmd ]] || exit
+
+recent_list_cache "$cmd" "$1"
+
+st -n FloatMe -e bash -c "$cmd || (echo ' ' && read -p 'Command failed, press enter...')"

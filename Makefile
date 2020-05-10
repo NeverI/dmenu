@@ -37,6 +37,12 @@ dist: clean
 		drw.h util.h dmenu_path stest.1\
 		scripts/dmenu_run_i\
 		scripts/passmenu\
+		scripts/projectmenu\
+		scripts/recent_list\
+		scripts/quickeditmenu\
+		scripts/quickrunmenu\
+		scripts/uttmenu\
+		scripts/xdgopenmenu\
 		$(SRC) dmenu-$(VERSION)
 	tar -cf dmenu-$(VERSION).tar dmenu-$(VERSION)
 	gzip dmenu-$(VERSION).tar
@@ -47,11 +53,23 @@ install: all
 	cp -f dmenu dmenu_path stest\
 		scripts/dmenu_run_i\
 		scripts/passmenu\
+		scripts/projectmenu\
+		scripts/recent_list_cache\
+		scripts/quickeditmenu\
+		scripts/quickrunmenu\
+		scripts/uttmenu\
+		scripts/xdgopenmenu\
 		$(DESTDIR)$(PREFIX)/bin
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/dmenu
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/dmenu_path
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/dmenu_run_i
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/passmenu
+	chmod 755 $(DESTDIR)$(PREFIX)/bin/projectmenu
+	chmod 755 $(DESTDIR)$(PREFIX)/bin/recent_list_cache
+	chmod 755 $(DESTDIR)$(PREFIX)/bin/quickeditmenu
+	chmod 755 $(DESTDIR)$(PREFIX)/bin/quickrunmenu
+	chmod 755 $(DESTDIR)$(PREFIX)/bin/uttmenu
+	chmod 755 $(DESTDIR)$(PREFIX)/bin/xdgopenmenu
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/stest
 	mkdir -p $(DESTDIR)$(MANPREFIX)/man1
 	sed "s/VERSION/$(VERSION)/g" < dmenu.1 > $(DESTDIR)$(MANPREFIX)/man1/dmenu.1

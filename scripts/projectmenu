@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+cd $1
+
+dir=$(ls -1td */ | dmenu -i -n)
+
+[[ -n $dir ]] || exit
+
+cd $dir
+
+if [[ -f Session.vim ]]; then
+  st -e nvim -S Session.vim
+else
+  st -e nvim .
+fi

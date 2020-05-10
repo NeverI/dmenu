@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+what=$(tail -n 500 "$1" | grep -v "^$" | sed 's/^\([0-9: -]\+\) //'| tac | awk '!x[$0]++' | dmenu -i)
+
+[[ -n $what ]] || exit
+
+utt add "$what"

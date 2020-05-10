@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+selected_file=$(ls -tp $1 | grep -v / | dmenu -i)
+
+[[ -n $selected_file ]] || exit
+
+xdg-open "$1/$selected_file"

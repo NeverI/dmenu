@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+if [[ -f $2 ]]; then
+  esc="$(echo "$1" | sed 's/[^-A-Za-z0-9_]/\\&/g')" # backslash special characters
+  sed -i "/^$esc$/d" $2
+  echo -e "$1\n$(cat $2)" > $2
+else
+  echo "$1\n" > $2
+fi

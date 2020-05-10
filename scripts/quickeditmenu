@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+file=$(cat "$1"  | dmenu -i)
+
+[[ -n $file ]] || exit
+
+recent_list_cache "$file" "$1"
+
+fullpath=$(echo "$file" | sed "s,~,$HOME,")
+cmd="nvim $fullpath"
+
+if [[ "$fullpath" =~ !$ ]]; then
+  cmd=$(echo "sudo $cmd" | cut -d'!' -f1)
+fi
+
+st -n FloatMe -e $cmd
