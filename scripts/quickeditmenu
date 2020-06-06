@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-file=$(cat "$1"  | dmenu -i -n -t)
+file=$(cat "$1"  | dmenu -i)
 
 [[ -n $file ]] || exit
 
