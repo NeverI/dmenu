@@ -43,6 +43,7 @@ dist: clean
 		scripts/quickrunmenu\
 		scripts/uttmenu\
 		scripts/xdgopenmenu\
+		scripts/taskmenu\
 		$(SRC) dmenu-$(VERSION)
 	tar -cf dmenu-$(VERSION).tar dmenu-$(VERSION)
 	gzip dmenu-$(VERSION).tar
@@ -59,6 +60,7 @@ install: all
 		scripts/quickrunmenu\
 		scripts/uttmenu\
 		scripts/xdgopenmenu\
+		scripts/taskmenu\
 		$(DESTDIR)$(PREFIX)/bin
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/stest
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/dmenu
@@ -71,6 +73,7 @@ install: all
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/quickrunmenu
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/uttmenu
 	chmod 755 $(DESTDIR)$(PREFIX)/bin/xdgopenmenu
+	chmod 755 $(DESTDIR)$(PREFIX)/bin/taskmenu
 	mkdir -p $(DESTDIR)$(MANPREFIX)/man1
 	sed "s/VERSION/$(VERSION)/g" < dmenu.1 > $(DESTDIR)$(MANPREFIX)/man1/dmenu.1
 	sed "s/VERSION/$(VERSION)/g" < stest.1 > $(DESTDIR)$(MANPREFIX)/man1/stest.1
@@ -89,6 +92,7 @@ uninstall:
 		$(DESTDIR)$(PREFIX)/bin/quickrunmenu\
 		$(DESTDIR)$(PREFIX)/bin/uttmenu\
 		$(DESTDIR)$(PREFIX)/bin/xdgopenmenu\
+		$(DESTDIR)$(PREFIX)/bin/taskmenu\
 		$(DESTDIR)$(MANPREFIX)/man1/dmenu.1\
 		$(DESTDIR)$(MANPREFIX)/man1/stest.1
 
