@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 
-selected_file=$(ls -tp $1 | grep -v / | dmenu -i -n)
+if [ "$1" == "-d" ]
+then
+  base=$2
+  selected_file=$(rg --files $base | sed "s%$base%%" | dmenu -i -n)
+  echo $selected_file
+else
+  base=$1
+  selected_file=$(ls -tp $base | grep -v / | dmenu -i -n)
+fi
 
 [[ -n $selected_file ]] || exit
 
-xdg-open "$1/$selected_file"
+xdg-open "$base/$selected_file"
